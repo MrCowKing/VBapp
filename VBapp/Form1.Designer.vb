@@ -27,6 +27,14 @@ Partial Class Form1
       Me.lblPriority = New System.Windows.Forms.Label()
       Me.tabconMain = New System.Windows.Forms.TabControl()
       Me.TabPage1 = New System.Windows.Forms.TabPage()
+      Me.lblAffinity = New System.Windows.Forms.Label()
+      Me.textAffinity = New System.Windows.Forms.MaskedTextBox()
+      Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+      Me.checkWait = New System.Windows.Forms.CheckBox()
+      Me.checkI = New System.Windows.Forms.CheckBox()
+      Me.checkB = New System.Windows.Forms.CheckBox()
+      Me.Label2 = New System.Windows.Forms.Label()
+      Me.cbWindow = New System.Windows.Forms.ComboBox()
       Me.Label1 = New System.Windows.Forms.Label()
       Me.textbPath = New System.Windows.Forms.TextBox()
       Me.lblTitle = New System.Windows.Forms.Label()
@@ -35,18 +43,17 @@ Partial Class Form1
       Me.TabPage3 = New System.Windows.Forms.TabPage()
       Me.tipTitle = New System.Windows.Forms.ToolTip(Me.components)
       Me.tipPath = New System.Windows.Forms.ToolTip(Me.components)
-      Me.checkB = New System.Windows.Forms.CheckBox()
       Me.tipB = New System.Windows.Forms.ToolTip(Me.components)
-      Me.checkI = New System.Windows.Forms.CheckBox()
       Me.tipI = New System.Windows.Forms.ToolTip(Me.components)
-      Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-      Me.Label2 = New System.Windows.Forms.Label()
       Me.tipPriority = New System.Windows.Forms.ToolTip(Me.components)
-      Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-      Me.checkWait = New System.Windows.Forms.CheckBox()
       Me.tipWait = New System.Windows.Forms.ToolTip(Me.components)
-      Me.textAffinity = New System.Windows.Forms.MaskedTextBox()
-      Me.lblAffinity = New System.Windows.Forms.Label()
+      Me.tipAffinity = New System.Windows.Forms.ToolTip(Me.components)
+      Me.tipWindow = New System.Windows.Forms.ToolTip(Me.components)
+      Me.Label3 = New System.Windows.Forms.Label()
+      Me.textProgram = New System.Windows.Forms.TextBox()
+      Me.Label4 = New System.Windows.Forms.Label()
+      Me.textPara = New System.Windows.Forms.TextBox()
+      Me.btnGen = New System.Windows.Forms.Button()
       Me.tabconMain.SuspendLayout()
       Me.TabPage1.SuspendLayout()
       Me.GroupBox1.SuspendLayout()
@@ -86,11 +93,16 @@ Partial Class Form1
       '
       'TabPage1
       '
+      Me.TabPage1.Controls.Add(Me.btnGen)
+      Me.TabPage1.Controls.Add(Me.Label4)
+      Me.TabPage1.Controls.Add(Me.textPara)
+      Me.TabPage1.Controls.Add(Me.Label3)
+      Me.TabPage1.Controls.Add(Me.textProgram)
       Me.TabPage1.Controls.Add(Me.lblAffinity)
       Me.TabPage1.Controls.Add(Me.textAffinity)
       Me.TabPage1.Controls.Add(Me.GroupBox1)
       Me.TabPage1.Controls.Add(Me.Label2)
-      Me.TabPage1.Controls.Add(Me.ComboBox1)
+      Me.TabPage1.Controls.Add(Me.cbWindow)
       Me.TabPage1.Controls.Add(Me.Label1)
       Me.TabPage1.Controls.Add(Me.textbPath)
       Me.TabPage1.Controls.Add(Me.lblTitle)
@@ -104,6 +116,94 @@ Partial Class Form1
       Me.TabPage1.TabIndex = 0
       Me.TabPage1.Text = "Generate"
       Me.TabPage1.UseVisualStyleBackColor = True
+      '
+      'lblAffinity
+      '
+      Me.lblAffinity.AutoSize = True
+      Me.lblAffinity.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.lblAffinity.Location = New System.Drawing.Point(223, 143)
+      Me.lblAffinity.Name = "lblAffinity"
+      Me.lblAffinity.Size = New System.Drawing.Size(78, 22)
+      Me.lblAffinity.TabIndex = 12
+      Me.lblAffinity.Text = "Affinity:"
+      '
+      'textAffinity
+      '
+      Me.textAffinity.Location = New System.Drawing.Point(307, 145)
+      Me.textAffinity.Mask = "9999"
+      Me.textAffinity.Name = "textAffinity"
+      Me.textAffinity.Size = New System.Drawing.Size(115, 20)
+      Me.textAffinity.TabIndex = 11
+      Me.textAffinity.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+      '
+      'GroupBox1
+      '
+      Me.GroupBox1.Controls.Add(Me.checkWait)
+      Me.GroupBox1.Controls.Add(Me.checkI)
+      Me.GroupBox1.Controls.Add(Me.checkB)
+      Me.GroupBox1.Location = New System.Drawing.Point(10, 143)
+      Me.GroupBox1.Name = "GroupBox1"
+      Me.GroupBox1.Size = New System.Drawing.Size(150, 100)
+      Me.GroupBox1.TabIndex = 10
+      Me.GroupBox1.TabStop = False
+      Me.GroupBox1.Text = "Flags"
+      '
+      'checkWait
+      '
+      Me.checkWait.AutoSize = True
+      Me.checkWait.Location = New System.Drawing.Point(11, 66)
+      Me.checkWait.Name = "checkWait"
+      Me.checkWait.Size = New System.Drawing.Size(48, 17)
+      Me.checkWait.TabIndex = 8
+      Me.checkWait.Text = "Wait"
+      Me.tipWait.SetToolTip(Me.checkWait, "Start application and wait for it to terminate.")
+      Me.checkWait.UseVisualStyleBackColor = True
+      '
+      'checkI
+      '
+      Me.checkI.AutoSize = True
+      Me.checkI.Location = New System.Drawing.Point(11, 19)
+      Me.checkI.Name = "checkI"
+      Me.checkI.Size = New System.Drawing.Size(110, 17)
+      Me.checkI.TabIndex = 7
+      Me.checkI.Text = "New Environment"
+      Me.tipI.SetToolTip(Me.checkI, "The new environment will be the original environment passed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to the cmd.exe and n" &
+        "ot the current environment.")
+      Me.checkI.UseVisualStyleBackColor = True
+      '
+      'checkB
+      '
+      Me.checkB.AutoSize = True
+      Me.checkB.Location = New System.Drawing.Point(11, 42)
+      Me.checkB.Name = "checkB"
+      Me.checkB.Size = New System.Drawing.Size(84, 17)
+      Me.checkB.TabIndex = 6
+      Me.checkB.Text = "Background"
+      Me.tipB.SetToolTip(Me.checkB, "Start application without creating a new window. The " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "application has ^C handlin" &
+        "g ignored. Unless the application" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "enables ^C processing, ^Break is the only way" &
+        " to interrupt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the application.")
+      Me.checkB.UseVisualStyleBackColor = True
+      '
+      'Label2
+      '
+      Me.Label2.AutoSize = True
+      Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.Label2.Location = New System.Drawing.Point(223, 75)
+      Me.Label2.Name = "Label2"
+      Me.Label2.Size = New System.Drawing.Size(146, 22)
+      Me.Label2.TabIndex = 9
+      Me.Label2.Text = "Window status:"
+      '
+      'cbWindow
+      '
+      Me.cbWindow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cbWindow.FormattingEnabled = True
+      Me.cbWindow.Items.AddRange(New Object() {"Default", "Minimized", "Maximized"})
+      Me.cbWindow.Location = New System.Drawing.Point(227, 100)
+      Me.cbWindow.Name = "cbWindow"
+      Me.cbWindow.Size = New System.Drawing.Size(121, 21)
+      Me.cbWindow.TabIndex = 8
+      Me.tipWindow.SetToolTip(Me.cbWindow, "Start the window minimized, maximized, or normally.")
       '
       'Label1
       '
@@ -169,91 +269,52 @@ Partial Class Form1
       '
       Me.tipTitle.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
       '
-      'checkB
+      'Label3
       '
-      Me.checkB.AutoSize = True
-      Me.checkB.Location = New System.Drawing.Point(11, 42)
-      Me.checkB.Name = "checkB"
-      Me.checkB.Size = New System.Drawing.Size(84, 17)
-      Me.checkB.TabIndex = 6
-      Me.checkB.Text = "Background"
-      Me.tipB.SetToolTip(Me.checkB, "Start application without creating a new window. The " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "application has ^C handlin" &
-        "g ignored. Unless the application" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "enables ^C processing, ^Break is the only way" &
-        " to interrupt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the application.")
-      Me.checkB.UseVisualStyleBackColor = True
+      Me.Label3.AutoSize = True
+      Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.Label3.Location = New System.Drawing.Point(6, 259)
+      Me.Label3.Name = "Label3"
+      Me.Label3.Size = New System.Drawing.Size(97, 22)
+      Me.Label3.TabIndex = 14
+      Me.Label3.Text = "Program: "
       '
-      'checkI
+      'textProgram
       '
-      Me.checkI.AutoSize = True
-      Me.checkI.Location = New System.Drawing.Point(11, 19)
-      Me.checkI.Name = "checkI"
-      Me.checkI.Size = New System.Drawing.Size(110, 17)
-      Me.checkI.TabIndex = 7
-      Me.checkI.Text = "New Environment"
-      Me.tipI.SetToolTip(Me.checkI, "The new environment will be the original environment passed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to the cmd.exe and n" &
-        "ot the current environment.")
-      Me.checkI.UseVisualStyleBackColor = True
+      Me.textProgram.Location = New System.Drawing.Point(10, 284)
+      Me.textProgram.MaxLength = 256
+      Me.textProgram.Name = "textProgram"
+      Me.textProgram.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+      Me.textProgram.Size = New System.Drawing.Size(195, 20)
+      Me.textProgram.TabIndex = 13
       '
-      'ComboBox1
+      'Label4
       '
-      Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-      Me.ComboBox1.FormattingEnabled = True
-      Me.ComboBox1.Items.AddRange(New Object() {"Default", "Minimized", "Maximized"})
-      Me.ComboBox1.Location = New System.Drawing.Point(227, 100)
-      Me.ComboBox1.Name = "ComboBox1"
-      Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-      Me.ComboBox1.TabIndex = 8
+      Me.Label4.AutoSize = True
+      Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.Label4.Location = New System.Drawing.Point(6, 320)
+      Me.Label4.Name = "Label4"
+      Me.Label4.Size = New System.Drawing.Size(118, 22)
+      Me.Label4.TabIndex = 16
+      Me.Label4.Text = "Parameters:"
       '
-      'Label2
+      'textPara
       '
-      Me.Label2.AutoSize = True
-      Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-      Me.Label2.Location = New System.Drawing.Point(223, 75)
-      Me.Label2.Name = "Label2"
-      Me.Label2.Size = New System.Drawing.Size(146, 22)
-      Me.Label2.TabIndex = 9
-      Me.Label2.Text = "Window status:"
+      Me.textPara.Location = New System.Drawing.Point(10, 345)
+      Me.textPara.MaxLength = 256
+      Me.textPara.Name = "textPara"
+      Me.textPara.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+      Me.textPara.Size = New System.Drawing.Size(195, 20)
+      Me.textPara.TabIndex = 15
       '
-      'GroupBox1
+      'btnGen
       '
-      Me.GroupBox1.Controls.Add(Me.checkWait)
-      Me.GroupBox1.Controls.Add(Me.checkI)
-      Me.GroupBox1.Controls.Add(Me.checkB)
-      Me.GroupBox1.Location = New System.Drawing.Point(10, 143)
-      Me.GroupBox1.Name = "GroupBox1"
-      Me.GroupBox1.Size = New System.Drawing.Size(150, 100)
-      Me.GroupBox1.TabIndex = 10
-      Me.GroupBox1.TabStop = False
-      Me.GroupBox1.Text = "Flags"
-      '
-      'checkWait
-      '
-      Me.checkWait.AutoSize = True
-      Me.checkWait.Location = New System.Drawing.Point(11, 66)
-      Me.checkWait.Name = "checkWait"
-      Me.checkWait.Size = New System.Drawing.Size(48, 17)
-      Me.checkWait.TabIndex = 8
-      Me.checkWait.Text = "Wait"
-      Me.tipWait.SetToolTip(Me.checkWait, "Start application and wait for it to terminate.")
-      Me.checkWait.UseVisualStyleBackColor = True
-      '
-      'textAffinity
-      '
-      Me.textAffinity.Location = New System.Drawing.Point(227, 168)
-      Me.textAffinity.Mask = ">[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]"
-      Me.textAffinity.Name = "textAffinity"
-      Me.textAffinity.Size = New System.Drawing.Size(195, 20)
-      Me.textAffinity.TabIndex = 11
-      '
-      'lblAffinity
-      '
-      Me.lblAffinity.AutoSize = True
-      Me.lblAffinity.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-      Me.lblAffinity.Location = New System.Drawing.Point(223, 143)
-      Me.lblAffinity.Name = "lblAffinity"
-      Me.lblAffinity.Size = New System.Drawing.Size(78, 22)
-      Me.lblAffinity.TabIndex = 12
-      Me.lblAffinity.Text = "Affinity:"
+      Me.btnGen.Location = New System.Drawing.Point(273, 281)
+      Me.btnGen.Name = "btnGen"
+      Me.btnGen.Size = New System.Drawing.Size(75, 23)
+      Me.btnGen.TabIndex = 17
+      Me.btnGen.Text = "Generate"
+      Me.btnGen.UseVisualStyleBackColor = True
       '
       'Form1
       '
@@ -285,7 +346,7 @@ Partial Class Form1
    Friend WithEvents tipTitle As ToolTip
    Friend WithEvents tipPriority As ToolTip
    Friend WithEvents Label2 As Label
-   Friend WithEvents ComboBox1 As ComboBox
+   Friend WithEvents cbWindow As ComboBox
    Friend WithEvents checkI As CheckBox
    Friend WithEvents tipI As ToolTip
    Friend WithEvents checkB As CheckBox
@@ -296,4 +357,11 @@ Partial Class Form1
    Friend WithEvents tipWait As ToolTip
    Friend WithEvents textAffinity As MaskedTextBox
    Friend WithEvents lblAffinity As Label
+   Friend WithEvents tipWindow As ToolTip
+   Friend WithEvents tipAffinity As ToolTip
+   Friend WithEvents btnGen As Button
+   Friend WithEvents Label4 As Label
+   Friend WithEvents textPara As TextBox
+   Friend WithEvents Label3 As Label
+   Friend WithEvents textProgram As TextBox
 End Class
