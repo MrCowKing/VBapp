@@ -27,6 +27,13 @@ Partial Class Form1
       Me.lblPriority = New System.Windows.Forms.Label()
       Me.tabconMain = New System.Windows.Forms.TabControl()
       Me.TabPage1 = New System.Windows.Forms.TabPage()
+      Me.lblOutput = New System.Windows.Forms.Label()
+      Me.Label6 = New System.Windows.Forms.Label()
+      Me.btnGen = New System.Windows.Forms.Button()
+      Me.Label4 = New System.Windows.Forms.Label()
+      Me.textPara = New System.Windows.Forms.TextBox()
+      Me.Label3 = New System.Windows.Forms.Label()
+      Me.textProgram = New System.Windows.Forms.TextBox()
       Me.lblAffinity = New System.Windows.Forms.Label()
       Me.textAffinity = New System.Windows.Forms.MaskedTextBox()
       Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -41,6 +48,7 @@ Partial Class Form1
       Me.textbTitle = New System.Windows.Forms.TextBox()
       Me.TabPage2 = New System.Windows.Forms.TabPage()
       Me.TabPage3 = New System.Windows.Forms.TabPage()
+      Me.Label5 = New System.Windows.Forms.Label()
       Me.tipTitle = New System.Windows.Forms.ToolTip(Me.components)
       Me.tipPath = New System.Windows.Forms.ToolTip(Me.components)
       Me.tipB = New System.Windows.Forms.ToolTip(Me.components)
@@ -49,18 +57,15 @@ Partial Class Form1
       Me.tipWait = New System.Windows.Forms.ToolTip(Me.components)
       Me.tipAffinity = New System.Windows.Forms.ToolTip(Me.components)
       Me.tipWindow = New System.Windows.Forms.ToolTip(Me.components)
-      Me.Label3 = New System.Windows.Forms.Label()
-      Me.textProgram = New System.Windows.Forms.TextBox()
-      Me.Label4 = New System.Windows.Forms.Label()
-      Me.textPara = New System.Windows.Forms.TextBox()
-      Me.btnGen = New System.Windows.Forms.Button()
       Me.tabconMain.SuspendLayout()
       Me.TabPage1.SuspendLayout()
       Me.GroupBox1.SuspendLayout()
+      Me.TabPage3.SuspendLayout()
       Me.SuspendLayout()
       '
       'cbPriority
       '
+      Me.cbPriority.DisplayMember = "Normal"
       Me.cbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
       Me.cbPriority.FormattingEnabled = True
       Me.cbPriority.Items.AddRange(New Object() {"Idle", "Below Normal", "Normal", "Above Normal", "High", "Realtime"})
@@ -93,6 +98,8 @@ Partial Class Form1
       '
       'TabPage1
       '
+      Me.TabPage1.Controls.Add(Me.lblOutput)
+      Me.TabPage1.Controls.Add(Me.Label6)
       Me.TabPage1.Controls.Add(Me.btnGen)
       Me.TabPage1.Controls.Add(Me.Label4)
       Me.TabPage1.Controls.Add(Me.textPara)
@@ -116,6 +123,70 @@ Partial Class Form1
       Me.TabPage1.TabIndex = 0
       Me.TabPage1.Text = "Generate"
       Me.TabPage1.UseVisualStyleBackColor = True
+      '
+      'lblOutput
+      '
+      Me.lblOutput.AutoSize = True
+      Me.lblOutput.Location = New System.Drawing.Point(62, 377)
+      Me.lblOutput.Name = "lblOutput"
+      Me.lblOutput.Size = New System.Drawing.Size(0, 13)
+      Me.lblOutput.TabIndex = 19
+      '
+      'Label6
+      '
+      Me.Label6.AutoSize = True
+      Me.Label6.Location = New System.Drawing.Point(10, 377)
+      Me.Label6.Name = "Label6"
+      Me.Label6.Size = New System.Drawing.Size(45, 13)
+      Me.Label6.TabIndex = 18
+      Me.Label6.Text = "Output: "
+      '
+      'btnGen
+      '
+      Me.btnGen.Location = New System.Drawing.Point(273, 281)
+      Me.btnGen.Name = "btnGen"
+      Me.btnGen.Size = New System.Drawing.Size(75, 23)
+      Me.btnGen.TabIndex = 17
+      Me.btnGen.Text = "Generate"
+      Me.btnGen.UseVisualStyleBackColor = True
+      '
+      'Label4
+      '
+      Me.Label4.AutoSize = True
+      Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.Label4.Location = New System.Drawing.Point(6, 320)
+      Me.Label4.Name = "Label4"
+      Me.Label4.Size = New System.Drawing.Size(118, 22)
+      Me.Label4.TabIndex = 16
+      Me.Label4.Text = "Parameters:"
+      '
+      'textPara
+      '
+      Me.textPara.Location = New System.Drawing.Point(10, 345)
+      Me.textPara.MaxLength = 256
+      Me.textPara.Name = "textPara"
+      Me.textPara.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+      Me.textPara.Size = New System.Drawing.Size(195, 20)
+      Me.textPara.TabIndex = 15
+      '
+      'Label3
+      '
+      Me.Label3.AutoSize = True
+      Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.Label3.Location = New System.Drawing.Point(6, 259)
+      Me.Label3.Name = "Label3"
+      Me.Label3.Size = New System.Drawing.Size(97, 22)
+      Me.Label3.TabIndex = 14
+      Me.Label3.Text = "Program: "
+      '
+      'textProgram
+      '
+      Me.textProgram.Location = New System.Drawing.Point(10, 284)
+      Me.textProgram.MaxLength = 256
+      Me.textProgram.Name = "textProgram"
+      Me.textProgram.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+      Me.textProgram.Size = New System.Drawing.Size(195, 20)
+      Me.textProgram.TabIndex = 13
       '
       'lblAffinity
       '
@@ -257,6 +328,7 @@ Partial Class Form1
       '
       'TabPage3
       '
+      Me.TabPage3.Controls.Add(Me.Label5)
       Me.TabPage3.Location = New System.Drawing.Point(4, 22)
       Me.TabPage3.Name = "TabPage3"
       Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
@@ -265,56 +337,19 @@ Partial Class Form1
       Me.TabPage3.Text = "About"
       Me.TabPage3.UseVisualStyleBackColor = True
       '
+      'Label5
+      '
+      Me.Label5.AutoSize = True
+      Me.Label5.Location = New System.Drawing.Point(142, 55)
+      Me.Label5.Name = "Label5"
+      Me.Label5.Size = New System.Drawing.Size(150, 13)
+      Me.Label5.TabIndex = 0
+      Me.Label5.Text = "Created By: Mitchell Freiderich"
+      Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
+      '
       'tipTitle
       '
       Me.tipTitle.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
-      '
-      'Label3
-      '
-      Me.Label3.AutoSize = True
-      Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-      Me.Label3.Location = New System.Drawing.Point(6, 259)
-      Me.Label3.Name = "Label3"
-      Me.Label3.Size = New System.Drawing.Size(97, 22)
-      Me.Label3.TabIndex = 14
-      Me.Label3.Text = "Program: "
-      '
-      'textProgram
-      '
-      Me.textProgram.Location = New System.Drawing.Point(10, 284)
-      Me.textProgram.MaxLength = 256
-      Me.textProgram.Name = "textProgram"
-      Me.textProgram.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-      Me.textProgram.Size = New System.Drawing.Size(195, 20)
-      Me.textProgram.TabIndex = 13
-      '
-      'Label4
-      '
-      Me.Label4.AutoSize = True
-      Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-      Me.Label4.Location = New System.Drawing.Point(6, 320)
-      Me.Label4.Name = "Label4"
-      Me.Label4.Size = New System.Drawing.Size(118, 22)
-      Me.Label4.TabIndex = 16
-      Me.Label4.Text = "Parameters:"
-      '
-      'textPara
-      '
-      Me.textPara.Location = New System.Drawing.Point(10, 345)
-      Me.textPara.MaxLength = 256
-      Me.textPara.Name = "textPara"
-      Me.textPara.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-      Me.textPara.Size = New System.Drawing.Size(195, 20)
-      Me.textPara.TabIndex = 15
-      '
-      'btnGen
-      '
-      Me.btnGen.Location = New System.Drawing.Point(273, 281)
-      Me.btnGen.Name = "btnGen"
-      Me.btnGen.Size = New System.Drawing.Size(75, 23)
-      Me.btnGen.TabIndex = 17
-      Me.btnGen.Text = "Generate"
-      Me.btnGen.UseVisualStyleBackColor = True
       '
       'Form1
       '
@@ -329,6 +364,8 @@ Partial Class Form1
       Me.TabPage1.PerformLayout()
       Me.GroupBox1.ResumeLayout(False)
       Me.GroupBox1.PerformLayout()
+      Me.TabPage3.ResumeLayout(False)
+      Me.TabPage3.PerformLayout()
       Me.ResumeLayout(False)
 
    End Sub
@@ -364,4 +401,7 @@ Partial Class Form1
    Friend WithEvents textPara As TextBox
    Friend WithEvents Label3 As Label
    Friend WithEvents textProgram As TextBox
+   Friend WithEvents lblOutput As Label
+   Friend WithEvents Label6 As Label
+   Friend WithEvents Label5 As Label
 End Class
